@@ -1,3 +1,5 @@
+import React, { useState } from "react";
+
 export default function Options (props) {
     return (
         <section class={`${props.type} options`}>
@@ -7,19 +9,23 @@ export default function Options (props) {
 }
 
 function Option (props) {
+    const { img, name, description, price } = props;
+
+    const [classes, setClasses] = useState("option");
+
     return (
-        <div class="option">
-            <img src={props.img} />
+        <div class={classes} onClick={() => setClasses("option selected")}>
+            <img src={img} />
                 <div class="text">
                     <div class="item">
-                        <h2 class="name">{props.name}</h2>
-                        <p class="description">{props.description}</p>
+                        <h2 class="name">{name}</h2>
+                        <p class="description">{description}</p>
                     </div>
                     <div class="price">
-                        R$ <span>{props.price.toFixed(2)}</span>
+                        R$ <span>{price.toFixed(2)}</span>
                     </div>
                 </div>
-                <ion-icon class="check hidden" name="checkmark-circle"></ion-icon>
+                <ion-icon class="check" name="checkmark-circle"></ion-icon>
         </div>
     );
 }
