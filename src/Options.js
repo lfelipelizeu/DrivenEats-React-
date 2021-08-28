@@ -25,7 +25,11 @@ function Option (props) {
                         R$ <span>{price.toFixed(2)}</span>
                     </div>
                 </div>
-                <ion-icon class="check" name="checkmark-circle"></ion-icon>
+                <div class="quantity">
+                    <span class="less">-</span>
+                    <span class="quantity">1</span>
+                    <span class="more">+</span>
+                </div>
         </div>
     );
 }

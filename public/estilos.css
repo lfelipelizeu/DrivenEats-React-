@@ -57,6 +57,7 @@ main section.options .option {
     margin-right: 16px;
     border-radius: 9px;
     box-shadow: 0 0 10px -4px rgba(0, 0, 0, 0.25);
+    font-size: 16px;
     position: relative;
 }
 
@@ -75,34 +76,47 @@ main section.options .option .text {
 }
 
 main section.options .option .text .name {
-    font-size: 16px;
     font-weight: 700;
     color: #333333;
     margin-bottom: 8px;
 }
 
-main section.options .option .text .description {
+main section.options .option .text p.description {
     font-size: 15px;
     font-weight: 300;
     color: #a6a6a6;
     line-height: 18px;
 }
 
-main section.options .option .text .price {
-    font-size: 16px;
+main section.options .option .text div.price {
     font-weight: 400;
 }
 
-main section.options .option .check {
-    font-size: 15px;
+main section.options .option div.quantity {
     position: absolute;
-    right: 13px;
-    bottom: 16px;
-    color: #32b72f;
+    bottom: 12px;
+    right: 14px;
+    display: none;
+}
+
+main section.options .option div.quantity span.less {
+    color: red;
+}
+
+main section.options .option div.quantity span.quantity {
+    margin: 0 5px;
+}
+
+main section.options .option div.quantity span.more {
+    color: green;
 }
 
 main section.options .option.selected {
     box-shadow: inset 0 0 0 5px #32b72f;
+}
+
+main section.options .option.selected div.quantity {
+    display: initial;
 }
 
 footer {
