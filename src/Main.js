@@ -108,21 +108,23 @@ const options = [
     }
 ];
 
-export default function Main() {
-    const foods = options.filter((option) => option.type === "food");
-    const drinks = options.filter((option) => option.type === "drink");
-    const desserts = options.filter((option) => option.type === "dessert");
+export default function Main({ orderList, setFoods, setDrinks, setDesserts }) {
+    const [ foods, drinks, desserts ] = orderList;
+
+    const foodOptions = options.filter((option) => option.type === "food");
+    const drinkOptions = options.filter((option) => option.type === "drink");
+    const dessertOptions = options.filter((option) => option.type === "dessert");
 
     return (
         <main>
             <h1>Primeiro, seu prato</h1>
-            <Options type="food" list={foods} />
+            <Options optionsList={foodOptions} typeList={foods} setTypeList={setFoods} />
 
             <h1>Agora, sua bebida</h1>
-            <Options type="drink" list={drinks} />
+            <Options optionsList={drinkOptions} typeList={drinks} setTypeList={setDrinks} />
 
             <h1>Por fim, sua sobremesa</h1>
-            <Options type="dessert" list={desserts} />
+            <Options optionsList={dessertOptions} typeList={desserts} setTypeList={setDesserts} />
         </main>
     );
 }

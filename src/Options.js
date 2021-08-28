@@ -1,20 +1,30 @@
 import React, { useState } from "react";
 
-export default function Options ({ list }) {
+export default function Options ({ optionsList, typeList, setTypeList }) {
     return (
-        <section class={`${list.type} options`}>
-            {list.map((option,index) => <Option key={index} name={option.name} img={option.img} description={option.description} price={option.price} />)}
+        <section class="options">
+            {optionsList.map((option,index) => <Option key={index} info={option} typeList={typeList} setTypeList={setTypeList} />)}
         </section>
     );
 }
 
-function Option (props) {
-    const { img, name, description, price } = props;
+function Option ({ info, typeList, setTypeList, orderList }) {
+    const { img, name, description, price } = info;
 
     const [classes, setClasses] = useState("option");
     const [quantity, setQuantity] = useState(1);
 
-    function reduceQuantity(event) {
+    function select () {
+        if (classes !== "option selected") {
+            setClasses("option selected");
+
+            const newTypeList = [...typeList];
+            newTypeList.push({name, price, quantity: 1});
+            setTypeList(newTypeList);
+        }
+    }
+
+    function reduceQuantity (event) {
         event.stopPropagation();
 
         if (quantity-1 === 0) {
@@ -24,8 +34,13 @@ function Option (props) {
         }
     }
 
+    function increaseQuantity(event) {
+        event.stopPropagation();
+        setQuantity(quantity + 1);
+    }
+
     return (
-        <div class={classes} onClick={() => setClasses("option selected")}>
+        <div class={classes} onClick={select}>
             <img src={img} />
                 <div class="text">
                     <div class="item">
@@ -39,7 +54,7 @@ function Option (props) {
                 <div class="quantity">
                     <span class="less" onClick={reduceQuantity}>-</span>
                     <span class="quantity">{quantity}</span>
-                    <span class="more" onClick={() => setQuantity(quantity + 1)}>+</span>
+                    <span class="more" onClick={increaseQuantity}>+</span>
                 </div>
         </div>
     );
