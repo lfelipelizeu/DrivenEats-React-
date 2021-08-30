@@ -54,7 +54,7 @@ function Total ({ orderList }) {
         
         for (let i = 0; i < orderList.length; i++) {
             for (let j = 0; j < orderList[i].length; j++) {
-                total += orderList[i][j].price;
+                total += orderList[i][j].price*orderList[i][j].quantity;
             }
         }
 
