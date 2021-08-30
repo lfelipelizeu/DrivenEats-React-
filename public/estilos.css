@@ -3,7 +3,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #e5e5e5;
+    background-color: #eeeeee;
     font-size: 18px;
 }
 
@@ -156,86 +156,65 @@ footer button.enabled {
 }
 
 section.confirm {
-    background-color: rgba(255, 255, 255 , 0.9);
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 123px;
 }
 
-section.confirm .box {
-    background-color: #50d074;
-    width: calc(100% - 36px);
-    height: 330px;
-    border-radius: 9px;
-    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
-    padding: 21px 25px 0;
-    position: absolute;
-    top: calc(50% - 330px/2);
-    left: 18px;
-}
-
-section.confirm .box .name, section.confirm .box .price {
-    font-size: 22px;
-    font-weight: 400;
-    color: #ffffff;
-    margin-bottom: 0;
+section.confirm h1 {
+    width: calc(100% - 38px);
+    font-size: 26px;
+    color: #333333;
     letter-spacing: 1.8%;
 }
 
-section.confirm .box h2 {
-    color: #ffffff;
-    font-weight: 700;
-    text-align: center;
-    font-size: 22px;
-    margin-bottom: 28px;
+section.confirm .order-box {
+    width: calc(100% - 38px);
+    background-color: #ffffff;
+    padding: 25px;
+    margin: 25px 0;
+    border-radius: 9px;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
 }
 
-section.confirm .box .row {
+section.confirm .row {
     display: flex;
     justify-content: space-between;
     margin-bottom: 13px;
 }
 
-section.confirm .box .total {
-    color: #ffffff;
-    font-weight: 700;
+section.confirm .order-box .row p {
     font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 1.8%;
 }
 
-section.confirm .box .total .price {
-    font-weight: 700;
-    
+section.confirm .row.total {
+    margin-bottom: 0 !important;
 }
 
-section.confirm .box button.send-order {
-    width: 100%;
+section.confirm .row.total p {
+    font-weight: 700 !important;
+}
+
+section.confirm button.send-order {
+    width: 310px;
     height: 52px;
-    background-color: #ffffff;
-    color: #50d074;
+    color: #ffffff;
+    background-color: #50d074;
     font-weight: 700;
     border: none;
     font-size: 22px;
     border-radius: 100px;
-    margin-top: 11px;
+    margin: 0 auto;
 }
 
-section.confirm .box button.cancel {
-    width: 100%;
+section.confirm button.cancel {
     height: 52px;
     background-color: transparent;
-    color: #ffffff;
+    color: #777777;
     font-weight: 700;
     border: none;
     font-size: 20px;
-}
-
-.travado {
-    overflow: hidden;
-}
-
-.hidden {
-    display: none !important;
 }
