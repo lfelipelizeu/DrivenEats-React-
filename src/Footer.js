@@ -16,13 +16,13 @@ export default function Footer ({ orderList }) {
     if ( foods.length > 0 && drinks.length > 0 && desserts.length > 0 ) {
         return (
             <footer>
-                <button class="enabled" onClick={sendOrder}>Fechar pedido</button>
+                <button className="enabled" onClick={sendOrder}>Fechar pedido</button>
             </footer>
         );
     } else {
         return (
             <footer>
-                <button class="disabled">Selecione os 3 itens para fechar o pedido</button>
+                <button className="disabled">Selecione os 3 itens para fechar o pedido</button>
             </footer>
         );
     }

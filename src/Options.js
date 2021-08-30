@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 export default function Options ({ optionsList, typeList, setTypeList }) {
     return (
-        <section class="options">
+        <section className="options">
             {optionsList.map((option,index) => <Option key={index} info={option} typeList={typeList} setTypeList={setTypeList} />)}
         </section>
     );
@@ -62,21 +62,21 @@ function Option ({ info, typeList, setTypeList }) {
     }
 
     return (
-        <div class={classes} onClick={select}>
-            <img src={img} />
-                <div class="text">
-                    <div class="item">
-                        <h2 class="name">{name}</h2>
-                        <p class="description">{description}</p>
+        <div className={classes} onClick={select}>
+            <img src={img} alt={name} />
+                <div className="text">
+                    <div className="item">
+                        <h2 className="name">{name}</h2>
+                        <p className="description">{description}</p>
                     </div>
-                    <div class="price">
-                        R$ <span>{price.toFixed(2)}</span>
+                    <div className="price">
+                        R$ <span>{price.toFixed(2).replace(/([.])/gi, ",")}</span>
                     </div>
                 </div>
-                <div class="quantity">
-                    <span class="less" onClick={reduceQuantity}>-</span>
-                    <span class="quantity">{quantity}</span>
-                    <span class="more" onClick={increaseQuantity}>+</span>
+                <div className="quantity">
+                    <span className="less" onClick={reduceQuantity}>-</span>
+                    <span className="quantity">{quantity}</span>
+                    <span className="more" onClick={increaseQuantity}>+</span>
                 </div>
         </div>
     );
